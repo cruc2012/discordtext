@@ -1,320 +1,192 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <meta http-equiv="refresh" content="300" >
-  <!-- Basic -->
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <!-- Mobile Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!-- Site Metas -->
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
-  <link rel="shortcut icon" href="images/favicon.png" type="">
-<html>
-  <head>
-<title>Discord Colored Text Generator</title>
-<meta charset="UTF-8">
-<meta name="description" content="Rebane's Discord Colored Text Generator">
-<meta name="author" content="rebane2001">
-<style>
-/*
-This license applies to the entire page, not just the style block.
-    
-This is free and unencumbered software released into the public domain.
-Anyone is free to copy, modify, publish, use, compile, sell, or
-distribute this software, either in source code form or as a compiled
-binary, for any purpose, commercial or non-commercial, and by any
-means.
-In jurisdictions that recognize copyright laws, the author or authors
-of this software dedicate any and all copyright interest in the
-software to the public domain. We make this dedication for the benefit
-of the public at large and to the detriment of our heirs and
-successors. We intend this dedication to be an overt act of
-relinquishment in perpetuity of all present and future rights to this
-software under copyright law.
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
-OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-OTHER DEALINGS IN THE SOFTWARE.
-For more information, please refer to <https://unlicense.org>
-*/
-
-    html {
-        font-family: sans-serif;
-        background-color: #36393F;
-        text-align: center;
-        color: #FFF;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>App Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
     }
 
-    .container {
-        max-width: 500px;
-        margin: auto;
+    .app-page {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
-    .flex {
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    .app-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
     }
 
-    #textarea {
-        width: 600px;
-        height: 600px;
-        border-radius: 5px;
-        resize: both;
-        overflow: auto;
-        text-align: left;
-        font-family: monospace;
-        background-color: #2F3136;
-        color: #B9BBBE;
-        border: #202225 1px solid;
-        padding: 5px;
-        display: inline-block;
-        
-        white-space: pre-wrap;
-        font-size: 0.875rem;
-        line-height: 1.125rem;
-        text-indent: 0;
+    .app-header img {
+      width: 80px;
+      height: 80px;
+      border-radius: 16px;
+      object-fit: cover;
     }
 
-    .button {
-        min-height: 32px;
-        min-width: 32px;
-        border: none;
-        border-radius: 3px;
-        color: #fff;
-        background-color: #4f545c;
-        font-size: 14px;
-        padding: 2px 16px;
-        cursor: pointer;
-        transition: background-color 250ms linear;
+    .app-info h1 {
+      margin: 0;
+      font-size: 24px;
     }
 
-    a,a:visited {
-        color: #00AFF4
+    .app-info p {
+      margin: 5px 0;
+      color: #666;
     }
 
-    .tooltip {
-        display: none;
-        position: absolute;
-        background-color: #3BA55D;
-        border: none;
-        border-radius: 3px;
-        color: #fff;
-        font-size: 14px;
-        padding: 8px 16px;
-        top: 0;
+    .section {
+      margin-top: 20px;
     }
 
-.ansi-1 { font-weight:700; text-decoration:none;       }
-.ansi-4 { font-weight:500; text-decoration:underline;  }
+    .section h2 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
 
-.ansi-30 { color: #4f545c; }
-.ansi-31 { color: #dc322f; }
-.ansi-32 { color: #859900; }
-.ansi-33 { color: #b58900; }
-.ansi-34 { color: #268bd2; }
-.ansi-35 { color: #d33682; }
-.ansi-36 { color: #2aa198; }
-.ansi-37 { color: #ffffff; }
+    .section p {
+      font-size: 14px;
+      line-height: 1.5;
+    }
 
-.ansi-30-bg { background-color: #4f545c; }
-.ansi-31-bg { background-color: #dc322f; }
-.ansi-32-bg { background-color: #859900; }
-.ansi-33-bg { background-color: #b58900; }
-.ansi-34-bg { background-color: #268bd2; }
-.ansi-35-bg { background-color: #d33682; }
-.ansi-36-bg { background-color: #2aa198; }
-.ansi-37-bg { background-color: #ffffff; }
+    .install-btn {
+      display: block;
+      text-align: center;
+      margin-top: 30px;
+      background-color: #1a73e8;
+      color: white;
+      padding: 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-.ansi-40 { background-color: #002b36; }
-.ansi-41 { background-color: #cb4b16; }
-.ansi-42 { background-color: #586e75; }
-.ansi-43 { background-color: #657b83; }
-.ansi-44 { background-color: #839496; }
-.ansi-45 { background-color: #6c71c4; }
-.ansi-46 { background-color: #93a1a1; }
-.ansi-47 { background-color: #fdf6e3; }
+    .install-btn:hover {
+      background-color: #1666cc;
+    }
 
-</style>
+    .screenshots img {
+      width: 20%;
+      height: auto;
+      margin-top: 20px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-<h1>Discord <span style="color:#5865F2">Colored</span> Text Generator</h1>
-<div class="container">
-<h3>About</h3>
-<p>This is a simple app that creates colored Discord messages using the ANSI color codes available on the latest Discord desktop versions.</p>
-<p>To use this, write your text, select parts of it and assign colors to them, then copy it using the button below, and send in a Discord message.</p>
-</div>
-<h2>Create your text</h2>
-<button data-ansi="0" class="button style-button">Reset All</button>
-<button data-ansi="1" class="button style-button ansi-1">Bold</button>
-<button data-ansi="4" class="button style-button ansi-4">Line</button>
-<br><br>
-<strong>FG</strong>
-<button data-ansi="30" class="button style-button ansi-30-bg">&nbsp;</button>
-<button data-ansi="31" class="button style-button ansi-31-bg">&nbsp;</button>
-<button data-ansi="32" class="button style-button ansi-32-bg">&nbsp;</button>
-<button data-ansi="33" class="button style-button ansi-33-bg">&nbsp;</button>
-<button data-ansi="34" class="button style-button ansi-34-bg">&nbsp;</button>
-<button data-ansi="35" class="button style-button ansi-35-bg">&nbsp;</button>
-<button data-ansi="36" class="button style-button ansi-36-bg">&nbsp;</button>
-<button data-ansi="37" class="button style-button ansi-37-bg">&nbsp;</button>
-<br><br>
-<strong>BG</strong>
-<button data-ansi="40" class="button style-button ansi-40">&nbsp;</button>
-<button data-ansi="41" class="button style-button ansi-41">&nbsp;</button>
-<button data-ansi="42" class="button style-button ansi-42">&nbsp;</button>
-<button data-ansi="43" class="button style-button ansi-43">&nbsp;</button>
-<button data-ansi="44" class="button style-button ansi-44">&nbsp;</button>
-<button data-ansi="45" class="button style-button ansi-45">&nbsp;</button>
-<button data-ansi="46" class="button style-button ansi-46">&nbsp;</button>
-<button data-ansi="47" class="button style-button ansi-47">&nbsp;</button>
-<br><br>
-<div class="flex"><div id="textarea" contenteditable="true"></div></div>
-<br>
-<button class="button copy">Copy text as Discord formatted</button>
-<br>
-<br>
-<small>This is an unofficial tool, it is not made or endorsed by Discord.</small>
-<div class="tooltip">Tooltip</div>
-<script type="text/javascript">
-    const textarea = document.querySelector("#textarea");
-    const copybtn = document.querySelector(".button.copy");
-    const tooltip = document.querySelector(".tooltip");
+  <p><a href="/index.html">Go Home</a></p>
+  <div class="app-page">
+    <div class="app-header">
+      <img id="app-icon" src="" alt="App Icon" />
+      <div class="app-info">
+        <h1 id="app-name"></h1>
+        <p id="app-version"></p>
+        <p id="app-publisher"></p>
+        <p id="app-size"></p>
+      </div>
+    </div>
 
-    const tooltipTexts = {
-        // FG
-        "30": "Dark Gray (33%)",
-        "31": "Red",
-        "32": "Yellowish Green",
-        "33": "Gold",
-        "34": "Light Blue",
-        "35": "Pink",
-        "36": "Teal",
-        "37": "White",
-        // BG
-        "40": "Blueish Black",
-        "41": "Rust Brown",
-        "42": "Gray (40%)",
-        "43": "Gray (45%)",
-        "44": "Light Gray (55%)",
-        "45": "Blurple",
-        "46": "Light Gray (60%)",
-        "47": "Cream White",
-    };
+    <div class="section">
+      <h2>About this app</h2>
+      <p id="app-description">Loading...</p>
+    </div>
 
-    // Some basic escaping of pasted HTML tags, not ideal but good enough for this situation.
-    textarea.oninput = () => {
-        const base = textarea.innerHTML.replace(/<(\/?(br|span|span class="ansi-[0-9]*"))>/g,"[$1]");
-        if (base.includes("<") || base.includes(">")) textarea.innerHTML = base.replace(/<.*?>/g,"").replace(/[<>]/g,"").replace(/\[(\/?(br|span|span class="ansi-[0-9]*"))\]/g,"<$1>");
-    };
+    <a class="install-btn" id="download-btn" href="#">Download apk</a>
 
-    // https://stackoverflow.com/a/61237402
-    document.addEventListener('keydown', event => {
-        if (event.key === 'Enter') {
-            document.execCommand('insertLineBreak')
-            event.preventDefault()
-        }
-    });
+        <div class="section">
+      <h2>Features</h2>
+      <p id="app-features">Loading...</p>
+    </div>
 
-    document.querySelectorAll(".style-button").forEach((btn) => {
-        btn.onclick = () => {
-            if (!btn.dataset.ansi) {
-                textarea.innerText = textarea.innerText;
-                return;
-            }
+    <div class="section">
+      <h2>Screenshots</h2>
+      <div id="screenshots" class="screenshots"></div>
+    </div>
+  </div>
 
-            const selection = window.getSelection();
-            const text = window.getSelection().toString();
-            
-            const span = document.createElement("span");
-            span.innerText = text;
-            span.classList.add(`ansi-${btn.dataset.ansi}`);
+  <!-- Fullscreen Viewer (hidden by default) -->
+  <dialog id="fullscreenViewer" onclick="this.close()" style="display: none; padding: 0; border: none; background: rgba(196, 196, 196, 0.95); align-items: center; justify-content: center; width: 100vw; height: 100vh;">
+    <img id="fullscreenImg" src="" style="max-width: 100%; max-height: 100%;">
+  </dialog>
 
-            const range = selection.getRangeAt(0);
-            range.deleteContents();
-            range.insertNode(span);
+  <script src="info.js"></script>
+  <script>
+    const viewer = document.getElementById("fullscreenViewer");
+    const fullImg = document.getElementById("fullscreenImg");
 
-            range.selectNodeContents(span);
-            selection.removeAllRanges();
-            selection.addRange(range);
-        };
-        btn.onmouseenter = () => {
-            if (!(btn.dataset.ansi > 4)) return;
-            const rect = btn.getBoundingClientRect();
-            tooltip.style.display = "block";
-            tooltip.innerText = tooltipTexts[btn.dataset.ansi];
-            tooltip.style.top = `${rect.top - 36}px`;
-            tooltip.style.left = `${rect.left - tooltip.clientWidth/2 + btn.clientWidth/2}px`;
-        };
-        btn.onmouseleave = () => {
-            tooltip.style.display = "none";
-        };
-    });
-
-    function nodesToANSI(nodes, states) {
-        let text = ""
-        for (const node of nodes) {
-            if (node.nodeType === 3) {
-                text += node.textContent;
-                continue;
-            }
-            if (node.nodeName === "BR") {
-                text += "\n";
-                continue;   
-            }
-            const ansiCode = +(node.className.split("-")[1]);
-            const newState = Object.assign({}, states.at(-1));
-
-            if (ansiCode < 30) newState.st = ansiCode;
-            if (ansiCode >= 30 && ansiCode < 40) newState.fg = ansiCode;
-            if (ansiCode >= 40) newState.bg = ansiCode;
-
-            states.push(newState)
-            text += `\x1b[${newState.st};${(ansiCode >= 40) ? newState.bg : newState.fg}m`;
-            text += nodesToANSI(node.childNodes, states);
-            states.pop()
-            text += `\x1b[0m`;
-            if (states.at(-1).fg !== 2) text += `\x1b[${states.at(-1).st};${states.at(-1).fg}m`;
-            if (states.at(-1).bg !== 2) text += `\x1b[${states.at(-1).st};${states.at(-1).bg}m`;
-        }
-        return text;
+    function openFullscreen(img) {
+      fullImg.src = img.src;
+      viewer.style.display = 'flex';
+      viewer.showModal();
     }
 
-    let copyCount = 0;
-    let copyTimeout = null;
+    function fetchAppInfo() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const publisher = urlParams.get('publisher');
+      const app = urlParams.get('app');
 
-    copybtn.onclick = () => {
-        const toCopy = "```ansi\n" + nodesToANSI(textarea.childNodes, [{ fg: 2, bg: 2, st:2 }]) + "\n```";
-        navigator.clipboard.writeText(toCopy).then(() => {
-            if (copyTimeout) clearTimeout(copyTimeout);
+      // If no publisher or app in the URL, redirect to home
+      if (!publisher || !app) {
+        window.location.href = "/index.html";
+        return;
+      }
 
-            const funnyCopyMessages = copybtn.innerText = ["Copied!", "Double Copy!", "Triple Copy!", "Dominating!!", "Rampage!!", "Mega Copy!!", "Unstoppable!!", "Wicked Sick!!", "Monster Copy!!!", "GODLIKE!!!", "BEYOND GODLIKE!!!!", Array(16).fill(0).reduce(p => p + String.fromCharCode(Math.floor(Math.random() * 65535)),"")];
+      const infoFilePath = `/publishers/${publisher}/${app}/info.js`;
 
-            copybtn.style.backgroundColor = (copyCount <= 8) ? "#3BA55D" : "#ED4245";
-            copybtn.innerText = funnyCopyMessages[copyCount];
-            copyCount = Math.min(11, copyCount + 1);
-            copyTimeout = setTimeout(() => {
-                copyCount = 0;
-                copybtn.style.backgroundColor = null;
-                copybtn.innerText = "Copy text as Discord formatted";
-            }, 2000)
+      // Dynamically loading the info.js file
+      fetch(infoFilePath)
+        .then(response => response.text())
+        .then(script => {
+          const scriptElement = document.createElement('script');
+          scriptElement.text = script;
+          document.head.appendChild(scriptElement);
 
-        }, (err) => {
-            // We don't need to stop the users if they get a little too excited about the button
-            if (copyCount > 2) return;
-            alert("Copying failed for some reason, let's try showing an alert, maybe you can copy it instead.");
-            alert(toCopy);
+          if (typeof appInfo !== 'undefined') {
+            // Set data from info.js
+            document.getElementById('app-icon').src = appInfo.icon;
+            document.getElementById('app-name').textContent = appInfo.name;
+            document.getElementById('app-version').textContent = `Version: ${appInfo.version}`;
+            document.getElementById('app-publisher').textContent = `Publisher: ${appInfo.publisher}`;
+            document.getElementById('app-size').textContent = `Size: ${appInfo.size}`;
+            document.getElementById('app-description').textContent = appInfo.description;
+            document.getElementById('app-features').textContent = appInfo.features;
+
+            const screenshotsContainer = document.getElementById("screenshots");
+            appInfo.screenshots.forEach(screenshot => {
+              const img = document.createElement('img');
+              img.src = screenshot;
+              img.alt = "Screenshot";
+              img.onclick = function() {
+                openFullscreen(img);
+              };
+              screenshotsContainer.appendChild(img);
+            });
+
+            document.getElementById('download-btn').href = appInfo.downloadLink;
+          } else {
+            // If no appInfo found, redirect to home
+            window.location.href = "/index.html";
+          }
+        })
+        .catch(error => {
+          console.error("Error loading info.js:", error);
+          window.location.href = "/index.html"; // Redirect on error
         });
     }
-</script>
-  <p>Made by <a href="https://www.customvibes.store" target="_blank">Curtis Gann</a>
+
+    // Initialize the app info
+    fetchAppInfo();
+  </script>
 </body>
 </html>
