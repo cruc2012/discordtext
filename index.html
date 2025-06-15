@@ -18,6 +18,12 @@
       font-size: 18px;
       margin-bottom: 30px;
     }
+    code {
+      display: block;
+      margin: 10px 0;
+      color: #0077cc;
+      font-size: 16px;
+    }
     button {
       padding: 12px 25px;
       margin: 10px;
@@ -36,22 +42,17 @@
 <body>
   <h1>Update Required</h1>
   <p>Please update the app by visiting this page:</p>
-  <p><code>https://mod-storeapps.customvibes.store/publishers/mod-store/discordtext/index.html</code></p>
+  <code>https://mod-storeapps.customvibes.store/publishers/mod-store/discordtext/index.html</code>
 
-  <button onclick="openInChrome()">Open in Chrome</button>
   <button onclick="copyURL()">Copy Link</button>
 
   <script>
     const updateURL = "https://mod-storeapps.customvibes.store/publishers/mod-store/discordtext/index.html";
 
-    function openInChrome() {
-      window.location.href = "intent://" + updateURL.replace(/^https?:\/\//, '') + "#Intent;scheme=https;package=com.android.chrome;end";
-    }
-
     function copyURL() {
       navigator.clipboard.writeText(updateURL).then(() => {
         alert("Link copied to clipboard!");
-      }).catch(err => {
+      }).catch(() => {
         alert("Failed to copy.");
       });
     }
