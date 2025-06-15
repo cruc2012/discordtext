@@ -1,49 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Please Update</title>
-    <style>
-        body {
-          margin: 0;
-          padding: 0;
-          height: 100vh;
-          background: #fefefe;
-          font-family: sans-serif;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          text-align: center;
-          color: #333;
-        }
-        h1 {
-          font-size: 2.5em;
-          margin-bottom: 0.5em;
-        }
-        p {
-          font-size: 1.2em;
-          margin-bottom: 2em;
-        }
-        a {
-          text-decoration: none;
-          background: #007bff;
-          color: #fff;
-          padding: 12px 24px;
-          border-radius: 8px;
-          font-size: 1em;
-          transition: background 0.3s;
-        }
-        a:hover {
-          background: #0056b3;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Please Update</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      font-size: 36px;
+      color: #222;
+    }
+    p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+    button {
+      padding: 12px 25px;
+      margin: 10px;
+      font-size: 16px;
+      background-color: #0066cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #004999;
+    }
+  </style>
 </head>
 <body>
-<h1>Please Update</h1>
-<p>A new version is available. Tap below to update now.</p>
-<a href="https://mod-storeapps.customvibes.store/publishers/mod-store/discordtext/index.html" target="_blank">
-    Install
-</a>
+  <h1>Update Required</h1>
+  <p>Please update the app by visiting this page:</p>
+  <p><code>https://mod-storeapps.customvibes.store/publishers/mod-store/discordtext/index.html</code></p>
+
+  <button onclick="openInChrome()">Open in Chrome</button>
+  <button onclick="copyURL()">Copy Link</button>
+
+  <script>
+    const updateURL = "https://mod-storeapps.customvibes.store/publishers/mod-store/discordtext/index.html";
+
+    function openInChrome() {
+      window.location.href = "intent://" + updateURL.replace(/^https?:\/\//, '') + "#Intent;scheme=https;package=com.android.chrome;end";
+    }
+
+    function copyURL() {
+      navigator.clipboard.writeText(updateURL).then(() => {
+        alert("Link copied to clipboard!");
+      }).catch(err => {
+        alert("Failed to copy.");
+      });
+    }
+  </script>
 </body>
 </html>
